@@ -18,6 +18,10 @@ void show_float(float x) {
     show_bytes((byte_pointer) &x, sizeof(float));
 }
 
+void show_string(char* x) {
+    show_bytes((byte_pointer) &x, 6);
+}
+
 void show_pointer(void* x) {
     show_bytes((byte_pointer) &x, sizeof(void *));
 }
@@ -33,6 +37,13 @@ int main() {
     float secondFloat = 555.89127876;
     show_float(firstFloat);
     show_float(secondFloat);
+
+    printf("%x\n", 'a');
+    printf("%c\n", 0xa4);
+    char* firstString = "abcdef";
+    char* secondString = "ABCDEF";
+    show_string(firstString);
+    show_string(secondString);
 
     void* firstPointer = &firstInteger;
     void* secondPointer = &secondFloat;
